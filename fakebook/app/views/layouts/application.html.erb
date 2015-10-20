@@ -7,8 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <header>
+    <div class="header">
+      <%= link_to "fAKEbOOK", '#', id: "logo" , class: "logo"%>
+      <nav>
+        <ul class="navigation">
+          <li><%= link_to "hOME",   '#' %></li>
+          <li><%= link_to "hELP",   '#' %></li>
+          <li><%= link_to "aBOUT",   '#' %></li>
+          <li><%= link_to "lOGIN", '#' %></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>
