@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#gem for password digest which i have added
+gem 'bcrypt'
 #gem which i have added to make the test run green and red
 gem 'minitest-reporters'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
