@@ -13,12 +13,13 @@
       <nav>
         <ul class="navigation">
           <li><%= link_to "hOME",   root_path %></li>
-          <li><%= link_to "hELP",   '#' %></li>
-          <li><%= link_to "aBOUT",   '#' %></li>
+          <li><%= link_to "hELP",   help_path  %></li>
+          <li><%= link_to "aBOUT",  about_path %></li>
           <% if logged_in?%>
-            <li><%= link_to "uSERS",   '#' %></li>
-            <li><%= link_to "lOGOUT", logout_path, method: "delete" %></li>
+            <li><%= link_to "uSERS",   users_path %></li>
             <li><%= link_to "pROFILE",   current_user %></li>
+            <li><%= link_to "sETTINGS",   edit_user_path(current_user) %></li>
+            <li><%= link_to "lOGOUT", logout_path, method: "delete" %></li>
           <%else %>
            <li><%= link_to "lOGIN", login_path %></li>
           <% end %>
