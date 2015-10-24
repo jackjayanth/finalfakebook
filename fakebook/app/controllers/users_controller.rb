@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user=User.new(user_params)
     
     if @user.save
+      log_in(@user)
       #handles a successful submission
       flash[:success]="welcome to fakebook"
       redirect_to user_url(@user)
