@@ -1,2 +1,60 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<html>
+    <body bgcolor="#f5f5f5">
+    <br>
+    <table border = 0 width = 500 align = center bgcolor= #f5f5f5>
+        <tr>
+            <td>
+                <br/><br/>
+                 Connect with friends and the world around you on Fakebook.<br/><br/><br/>
+                <img src = main_page1.png>
+            </td>
+            <td>
+                <%=form_for(:session, url: login_path) do |f|  %>
+                    <div class="msg_err"><%= @msg_login_err %></div>
+                    <%=f.label :email  %>
+                    <%=f.text_field :email  %>
+                    <br/>
+                    <%=f.label :password  %>
+                    <%=f.password_field :password  %>
+
+                    <br/><br/>
+                    <%= f.submit "Login in", class:"button"   %>
+                <% end %>
+
+                <p> New User? <%= link_to "Sign up now", signup_path %></p>
+            </td>
+         </tr>
+
+    </table>
+
+    <table>
+      <tr>
+        <td>
+   
+
+        </td>
+      </tr>
+    </table>
+
+    <hr/>
+    <br>
+    <table border = 0 align = center>
+      <tr>
+        <td>
+          <font size = 2 >
+            한국어 English(US) Español  Français(France) 中文(简体) Português(Brasil) Italiano Deutsch हिन्दी
+          </font>
+          <br><br>
+          <font size = 1> Fakebook © 2015</font>
+
+        </td>
+      </tr>
+
+    </table>
+    <br><br><br>
+
+
+
+
+    </body>
+</html>

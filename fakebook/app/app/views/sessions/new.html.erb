@@ -1,0 +1,15 @@
+<h1>login</h1>
+
+    <%=form_for(:session, url: login_path) do |f|  %>
+        <div class="msg_err"><%= @msg_login_err %></div>
+        <%=f.label :email  %>
+        <%=f.text_field :email  %>
+
+        <%=f.label :password  %>
+        <%=f.password_field :password  %>
+
+        <br/><br/>
+        <%= f.submit "Login in", class:"button"   %>
+    <% end %>
+    
+    <p> New User? <%= link_to "Sign up now", signup_path %></p>

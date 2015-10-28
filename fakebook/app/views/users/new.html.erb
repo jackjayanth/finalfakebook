@@ -1,19 +1,53 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>User Register</h1>
+<html>
+    <body bgcolor="#f5f5f5">
+        <br>
+        <table border = 0 align = center bgcolor= #f5f5f5>
+          <tr>
+            <td>
 
-    <%=form_for(@user) do |f|  %>
-    <%= render 'shared/error_messages'%>
-      <%=f.label :name  %>
-      <%=f.text_field :name  %>
-      
-       <%=f.label :email  %>
-      <%=f.text_field :email  %>
-      
-       <%=f.label :password  %>
-      <%=f.password_field :password  %>
-      
-       <%=f.label :password_confirmation, "confirmation"  %>
-      <%=f.password_field :password_confirmation  %>
-      <br/><br/>
-      <%= f.submit "create my account", class:"button"   %>
-    <% end %>
+              <font style = "" >Connect with friends and the world around you on Fakebook.</font><br/><br/><br/>
+                <img src = main_page1.png> <br>
+                <img src = signup1.png>  &nbsp; &nbsp; &nbsp; See photos and updates from friends in News Feed <br><br>
+
+                <img src = signup2.png>  &nbsp; &nbsp; &nbsp; Share what's new in your life on your Timeline.<br><br>
+
+                <img src = signup3.png>  &nbsp; &nbsp; Find more of what you're looking for with Facebook Search. <br><br>
+
+            </td>
+            <td align = right>
+
+                <%=form_for(@user) do |f|  %>
+                    <%= render 'shared/error_messages'%>
+                    <%=f.label :name  %>
+                    <%=f.text_field :name  %><br/><br/>
+
+                    <%=f.label :email  %>
+                    <%=f.text_field :email  %><br/><br/>
+
+                    <%=f.label :password  %>
+                    <%=f.password_field :password  %><br/><br/>
+
+                    <%=f.label :password_confirmation, "confirmation"  %>
+                    <%=f.password_field :password_confirmation  %><br/><br/>
+
+                    <%= f.submit "create my account", class:"button"   %>
+                <% end %>
+            </td>
+          </tr>
+        </table>
+    <br>
+    <hr>
+    <table align = center>
+      <tr>
+        <td>
+            <font size = 2 >
+              한국어 English(US) Español  Français(France) 中文(简体) Português(Brasil) Italiano Deutsch हिन्दी
+            </font>
+            <br><br>
+            <font size = 1> Fakebook © 2015</font>
+        </td>
+      </tr>
+    </table>
+    </body>
+</html>

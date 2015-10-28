@@ -1,18 +1,36 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
-<h1>login</h1>
+<font size = 1><h1>main >> login</h1></font>
+<html>
+    <body bgcolor="#f5f5f5">
+        <table border =1 align=center width="500">
+          <tr>
+            <td>
+               <font size = 5>Fakebook login</font>
+              <br><br>
+            </td>
 
-    <%=form_for(:session, url: login_path) do |f|  %>
-  
-      
-       <%=f.label :email  %>
-      <%=f.text_field :email  %>
-      
-       <%=f.label :password  %>
-      <%=f.password_field :password  %>
-      
-      <br/><br/>
-      <%= f.submit "Login in", class:"button"   %>
-    <% end %>
-    
-    <p> New User? <%= link_to "Sign up now", signup_path %></p>
+          </tr>
+          <tr>
+            <td align="center">
+              <br><br>
+              <%=form_for(:session, url: login_path) do |f|  %>
+                  <div class="msg_err"><%= @msg_login_err %></div>
+                  <%=f.label :email  %>
+                  <%=f.text_field :email  %>
+                  <br><br>
+                  <%=f.label :password  %>
+                  <%=f.password_field :password  %>
+
+                  <br/><br/>
+                  <%= f.submit "Login in", class:"button"   %>
+              <% end %>
+
+              <p> New User? <%= link_to "Sign up now", signup_path %></p>
+
+            </td>
+          </tr>
+        </table>
+
+    </body>
+
+</html>
+

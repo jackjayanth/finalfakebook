@@ -1,0 +1,18 @@
+<h1>User Register</h1>
+
+    <%=form_for(@user) do |f|  %>
+        <%= render 'shared/error_messages'%>
+        <%=f.label :name  %>
+        <%=f.text_field :name  %><br/><br/>
+
+        <%=f.label :email  %>
+        <%=f.text_field :email  %><br/><br/>
+
+        <%=f.label :password  %>
+        <%=f.password_field :password  %><br/><br/>
+
+        <%=f.label :password_confirmation, "confirmation"  %>
+        <%=f.password_field :password_confirmation  %><br/><br/>
+
+        <%= f.submit "create my account", class:"button"   %>
+    <% end %>
