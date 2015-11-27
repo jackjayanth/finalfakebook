@@ -1,4 +1,24 @@
+
 <html>
+  
+  <% if logged_in? %>
+   <div class="row">
+    <aside class="row1">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="feed">
+      <h3>Micropost Feed</h3>
+    </div>
+  </div>
+  
+  
+  <% else %>
     <body bgcolor="#f5f5f5">
     <br>
     <table border = 0 width = 500 align = center bgcolor= #f5f5f5>
@@ -57,4 +77,5 @@
 
 
     </body>
+    <% end %>
 </html>

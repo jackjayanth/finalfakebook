@@ -1,7 +1,13 @@
-
-
-<h1>
-    <%= @user.name   %>
-</h1>
+<h1><%= @user.name   %></h1>
 <br/>
 <h2><%= @user.email   %></h2>
+<div class="micropostdiv">
+    <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @user.microposts %>
+      </ol>
+    <% else %>
+    <h1> no microposts yet</h1>
+    <% end %>
+</div>
