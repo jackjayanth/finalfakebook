@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#gem for uploadinf images which i have added
+gem 'carrierwave'
+gem 'mini_magick'
 #gem for password digest which i have added
 gem 'bcrypt'
 #gem which i have added to make the test run green and red

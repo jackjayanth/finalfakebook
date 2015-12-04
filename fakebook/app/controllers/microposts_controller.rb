@@ -15,13 +15,15 @@ class MicropostsController < ApplicationController
  
   
   def destroy
-
+    @micropost.destroy
+    flash[:success] = "Micropost deleted"
+    redirect_to root_url
   end
   
   private
   
     def micropost_params
-      params.require(:micropost).permit(:content)
+     params.require(:micropost).permit(:content, :picture)
     end
   def logged_in_user
       unless logged_in?
@@ -29,8 +31,10 @@ class MicropostsController < ApplicationController
       end
   end
     
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
-    end
+    
+  def correct_user
+    @micropost = current_user.microposts.find_by(id: params[:id])
+    redirect_to root_url if @micropost.nil?
+  end
+  
 end
