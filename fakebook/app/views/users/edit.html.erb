@@ -4,17 +4,51 @@
 
     <%=form_for(@user) do |f|  %>
     <%= render 'shared/error_messages', object: f.object%>
-      <%=f.label :name  %>
-      <%=f.text_field :name  %>
+    <table>
+     <tr>
+      <td><%=f.label :name  %></td>
+      <td><%=f.text_field :name  %></td>
+      </tr>
+      <tr>
+       <td><%=f.label :email  %></td>
+      <td><%=f.text_field :email  %></td>
+      <tr>
+      <td><%=f.label :password  %></td>
+      <td><%=f.password_field :password  %></td>
+      </tr>
+      <tr>
+       <td><%=f.label :password_confirmation, "confirmation"  %></td>
+      <td><%=f.password_field :password_confirmation  %></td>
+      </tr>
+       <tr>
+       <td><%=f.label :work  %></td>
+      <td><%=f.text_field :work  %></td>
+      </tr>
+      <tr>
+      <td><%=f.label :education  %></td>
+      <td><%=f.text_field :education  %></td>
+      </tr>
+      <tr>
+      <td><%=f.label :about  %></td>
+      <td><%=f.text_area :about  %></td>
+      </tr>
+      <tr>
+      <td><%=f.label :relatioship  %></td>
+      <td><%=f.text_field :relatioship  %></td>
+      </tr>
+      <tr>
+      <td><%=f.label :dob  %></td>
+      <td><%=f.date_select :dob  %></td>
+      </tr>
+      <tr>
+      <td><%=f.label :interests  %></td>
+      <td><%=f.text_area :interests  %></td>
+      </tr>
+      <td><%=f.label :events  %></td>
+      <td><%=f.text_area :events  %></td>
+      </tr>
       
-       <%=f.label :email  %>
-      <%=f.text_field :email  %>
-      
-       <%=f.label :password  %>
-      <%=f.password_field :password  %>
-      
-       <%=f.label :password_confirmation, "confirmation"  %>
-      <%=f.password_field :password_confirmation  %>
       <br/><br/>
-      <%= f.submit "save and update the changes", class:"button"   %>
+      <td><%= f.submit "save and update the changes", class:"button"   %></td>
+      </table>
     <% end %>

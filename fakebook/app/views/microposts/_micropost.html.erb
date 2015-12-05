@@ -1,16 +1,19 @@
-<li id="micropost">
- <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+<table style="border-style:groove;">
+ <tr style="border-style:groove;"><td style="width:20%;border-style:groove;">*<span class="user"><%= link_to micropost.user.name, micropost.user %></span></td>
  <span class="content">
-    <%= micropost.content %>
-    <%= image_tag micropost.picture.url if micropost.picture? %>
+    <td style="width:90%;float:left; border-style:groove;"><%= micropost.content %></td></tr>
+    <tr>
+    <td colspan="2"><%= image_tag micropost.picture.url if micropost.picture? %></td>
  </span>
+ </tr>
+ <tr>
+ <td colspan="2">
  <span class="timestamp">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-   <% if current_user?(micropost.user) %>
-      <%= link_to "delete", micropost, method: :delete, data: { confirm: "You sure?" } %>
-    <% end %>
   </span>
-    
-</li>
+  </td>
+  </tr>
+<br/>
+</table>    
     
     
