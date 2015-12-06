@@ -168,6 +168,10 @@ ol.microposts table.post tbody{
     background-color: white;
 }
 
+ol.microposts table.post .btn_delete{
+    float: right;
+}
+
 ol.microposts table.post td{
     border: none;
 }

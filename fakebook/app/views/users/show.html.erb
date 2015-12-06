@@ -16,7 +16,9 @@
     <div class="user_area">
        <h2>
          <%= @user.name   %>
+         <% if @user.id == current_user.id %>
          <span><%= link_to "edit",   edit_user_path(current_user) %></span>
+         <% end %>
        </h2>
         <table class="user_info">
             <tr>
@@ -32,7 +34,7 @@
                 <td class="td_desc">
                   <% if @user.education != nil && @user.education != "" %>
                     <%=@user.education%>
-                  <% else %>
+                  <% elsif @user.id == current_user.id %>
                       <%= link_to "add",   edit_user_path(current_user) %>
                   <% end %>
                 </td>
@@ -42,7 +44,7 @@
                 <td class="td_desc">
                   <% if @user.about != nil && @user.about != "" %>
                       <%=@user.about%>
-                  <% else %>
+                  <% elsif @user.id == current_user.id %>
                       <%= link_to "add",   edit_user_path(current_user) %>
                   <% end %>
                 </td>
@@ -52,7 +54,7 @@
                 <td class="td_desc">
                   <% if @user.relatioship != nil && @user.relatioship != "" %>
                       <%=@user.relatioship%>
-                  <% else %>
+                  <% elsif @user.id == current_user.id %>
                       <%= link_to "add",   edit_user_path(current_user) %>
                   <% end %>
                 </td>
@@ -62,7 +64,7 @@
                 <td class="td_desc">
                   <% if @user.dob != nil && @user.dob != "" %>
                       <%=@user.dob%>
-                  <% else %>
+                  <% elsif @user.id == current_user.id %>
                       <%= link_to "add",   edit_user_path(current_user) %>
                   <% end %>
                 </td>
@@ -72,7 +74,7 @@
                 <td class="td_desc">
                   <% if @user.interests != nil && @user.interests != "" %>
                       <%=@user.interests%>
-                  <% else %>
+                  <% elsif @user.id == current_user.id %>
                       <%= link_to "add",   edit_user_path(current_user) %>
                   <% end %>
                 </td>
@@ -83,7 +85,7 @@
                 <td class="td_desc">
                   <% if @user.events != nil && @user.events != "" %>
                       <%=@user.events%>
-                  <% else %>
+                  <% elsif @user.id == current_user.id %>
                       <%= link_to "add",   edit_user_path(current_user) %>
                   <% end %>
                 </td>

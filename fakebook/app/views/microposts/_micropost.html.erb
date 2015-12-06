@@ -1,4 +1,12 @@
 <table class="post">
+  <% if micropost.user_id == current_user.id %>
+  <tr>
+    <td colspan="2">
+      <!--<%= link_to "delete", micropost, :method => :delete, :confirm => "You sure?"%>-->
+      <button class="btn_delete" value="<%=micropost.id%>">delete</button>
+    </td>
+  </tr>
+  <% end %>
  <tr class="text_area">
    <td class="user_info">*<span class="user"><%= link_to micropost.user.name, micropost.user %></span></td>
    <td class="text"><%= micropost.content %></td>
