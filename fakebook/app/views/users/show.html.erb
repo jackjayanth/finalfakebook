@@ -1,50 +1,93 @@
+<br/>
+<div class="profile">
+    <aside>
+        <div class="micropostdiv">
+            <% if @user.microposts.any? %>
+              <h3>Total Posts (<%= @user.microposts.count %>)</h3>
+              <ol class="microposts">
+                <%= render @user.microposts %>
+              </ol>
+            <% else %>
+            <h1> no microposts yet</h1>
+            <% end %>
+        </div>
+    </aside>
 
-<aside style="width:60%; margin-top: 2cm;float:right;">
-<div class="micropostdiv">
-    <% if @user.microposts.any? %>
-      <h3>Total Posts (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @user.microposts %>
-      </ol>
-    <% else %>
-    <h1> no microposts yet</h1>
-    <% end %>
+    <div class="user_area">
+       <h2>
+         <%= @user.name   %>
+         <span><%= link_to "edit",   edit_user_path(current_user) %></span>
+       </h2>
+        <table class="user_info">
+            <tr>
+                <td class="td_title">E-mail: </td>
+                <td class="td_desc"><%= @user.email%></td>
+            </tr>
+            <tr>
+                <td class="td_title">Work: </td>
+                <td class="td_desc"><%= @user.work %></td>
+            </tr>
+            <tr>
+                <td class="td_title">Education: </td>
+                <td class="td_desc">
+                  <% if @user.education != nil && @user.education != "" %>
+                    <%=@user.education%>
+                  <% else %>
+                      <%= link_to "add",   edit_user_path(current_user) %>
+                  <% end %>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_title">About: </td>
+                <td class="td_desc">
+                  <% if @user.about != nil && @user.about != "" %>
+                      <%=@user.about%>
+                  <% else %>
+                      <%= link_to "add",   edit_user_path(current_user) %>
+                  <% end %>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_title">Relationship: </td>
+                <td class="td_desc">
+                  <% if @user.relatioship != nil && @user.relatioship != "" %>
+                      <%=@user.relatioship%>
+                  <% else %>
+                      <%= link_to "add",   edit_user_path(current_user) %>
+                  <% end %>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_title">Date Of Birth: </td>
+                <td class="td_desc">
+                  <% if @user.dob != nil && @user.dob != "" %>
+                      <%=@user.dob%>
+                  <% else %>
+                      <%= link_to "add",   edit_user_path(current_user) %>
+                  <% end %>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_title">Interests: </td>
+                <td class="td_desc">
+                  <% if @user.interests != nil && @user.interests != "" %>
+                      <%=@user.interests%>
+                  <% else %>
+                      <%= link_to "add",   edit_user_path(current_user) %>
+                  <% end %>
+                </td>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_title">Life Events: </td>
+                <td class="td_desc">
+                  <% if @user.events != nil && @user.events != "" %>
+                      <%=@user.events%>
+                  <% else %>
+                      <%= link_to "add",   edit_user_path(current_user) %>
+                  <% end %>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
-</aside>
-<article>
-   <h1><%= @user.name   %></h1>
-<table style="width:40%;;"> 
-<tr> 
-<td><h4>Email:</h4></td>  
-<td><h3><%= @user.email%></h3></td>
-</tr>
-<tr> 
-<td><h4>Work:</h4></td>  
-<td> <h4><%= @user.work %></h4>  </td>
-</tr>
-<tr> 
-<td><h4>Education Qualification:</h4></td>  
-<td><h3><%=@user.education%></h3></td>
-</tr>
-<tr> 
-<td><h4>About:</h4></td>  
-<td><h3><%=@user.about %></h3></td>
-</tr>
-<tr> 
-<td><h4>Relationship:</h4></td>  
-<td><h3><%=@user.relatioship %></h3></td>
-</tr>
-<tr> 
-<td><h4>Date Of Birth</h4></td>  
-<td><h3><%=@user.dob %></h3></td>
-</tr>
-<tr> 
-<td><h4>Interests</h4></td>  
-<td><h3><%=@user.interests %></h3></td>
-</tr>
-<tr> 
-<td><h4>Life Events</h4></td>  
-<td><h3><%=@user.events  %></h3></td>
-</tr>
-</table>
-</article>

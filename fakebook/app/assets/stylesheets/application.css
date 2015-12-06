@@ -17,16 +17,18 @@ html{
     margin: 0;
     padding: 0;
     font-family:tahoma;
+    height: 100%;
 }
 body{
     height: 100%;
     margin: auto;
     padding:0;
- }
+    background-color: #f5f5f5;
+}
 header{
     background-color: #48649F;
     width: 100%;
-    min-width: 800px;
+    min-width: 550px;
     height: 50px;
     top: 0;
     position:fixed;
@@ -48,7 +50,7 @@ nav{
     float: right;
     display:block;
 }
-nav ul
+nav ul, footer ul
 {
     list-style-type: none;
     margin: 5px 0 0 0;
@@ -65,11 +67,221 @@ nav ul li a{
     text-decoration: none !important;
 }
 .container{
+    position: relative;
     width: 1280px;
     height: 100%;
+    min-height: 100%;
     margin: auto;
-    padding-top: 50px;
+    margin-top: 50px;
+    margin-bottom: -100px;
 }
+
+footer{
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    min-width: 1280px;
+    margin: auto;
+    height: 50px;
+    color: black;
+}
+footer div{
+    width: 1280px;
+    margin: auto;
+}
+footer p{
+    width: 500px;
+    margin: auto;
+}
+footer ul{
+    width: 500px;
+    margin-left: 550px;
+}
+footer ul li{
+    float: left;
+    margin-right: 10px;
+}
+footer ul li a{
+    color: black;
+    font-size:15px;
+    text-decoration: none !important;
+}
+footer ul li a:hover{
+    text-decoration: underline !important;
+}
+
 .field_with_errors, .msg_err{
     color: red;
 }
+
+/******************************/
+/*************Home*************/
+/******************************/
+div.home{
+
+}
+div.home .user_info{
+    float:left;
+    width:200px;
+}
+
+div.home .sponsor{
+    float:right;
+    width: 250px;
+}
+div.home .sponsor h3{
+    margin-left: 3px;
+}
+div.home .sponsor ul{
+    margin: 10px;
+    padding: 0;
+}
+div.home .sponsor ul li{
+    list-style-type: none;
+    margin: 10px 0 0 0;
+    padding: 0;
+    background-color: white;
+}
+div.home .sponsor img{
+    width:230px;
+}
+
+div.home .contents{
+    margin-left: 210px;
+    max-width: 810px;
+}
+div.home .contents .micropost_form{
+    padding-top: 20px;
+}
+div.home .contents #micropost_content{
+    width: 720px;
+    height: 80px;
+}
+
+ol.microposts table.post{
+    width: 720px;
+    border: 1px solid #BBBBBB !important;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+ol.microposts table.post tbody{
+    background-color: white;
+}
+
+ol.microposts table.post td{
+    border: none;
+}
+
+ol.microposts table.post .text_area{
+    min-height: 50px;
+    height: 50px;
+}
+ol.microposts table.post .text_area .user_info{
+    width: 100px;
+}
+ol.microposts table.post .text_area .text{
+    width: 600px;
+}
+ol.microposts table.post .image_area{
+    text-align: center;
+}
+ol.microposts table.post .image_area img{
+    min-width: 80px;
+}
+ol.microposts table.post .timestamp{
+    font-size: 11pt;
+}
+
+/******************************/
+/*************Users************/
+/******************************/
+div.find_friend{
+    margin-left: 30px;
+}
+
+div.find_friend .search_friend{
+    text-align: right;
+    margin-right: 70px;
+}
+div.find_friend .search_friend span{
+    font-size: 15pt;
+}
+div.find_friend .search_friend .input_friend{
+    height: 30px;
+}
+
+ul.users li{
+    float: left;
+    list-style-type: none;
+    margin: 5px;
+    padding-left: 20px;
+    background-color: white;
+    border: 1px solid #666666;
+    border-radius: 5px;
+    width: 350px;
+    height: 220px;
+}
+
+/******************************/
+/***********Profile************/
+/******************************/
+div.profile{
+
+}
+.user_area{
+    margin-top: 20px;
+    margin-left: 30px;
+    width: 350px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #666666;
+    border-radius: 5px;
+}
+div.profile .user_area h2 span{
+    float:right;
+    margin-right: 30px;
+    font-size: 13pt;
+}
+table.user_info td{
+    font-size: 15pt;
+    height: 40px;
+}
+table.user_info td.td_title{
+    text-align: right;
+}
+table.user_info td.td_desc{
+    padding-left: 20px;
+}
+table.user_info td.td_desc a{
+    font-size: 13pt;
+}
+
+div.profile aside{
+    width:800px;
+    float:right;
+}
+
+/******************************/
+/*********Edit Profile*********/
+/******************************/
+div.edit_profile_layout{
+    width: 100%;
+    margin: auto;
+}
+
+div.edit_user .user_area{
+    width: 400px;
+    padding-left: 50px;
+}
+
+div.edit_user input, div.edit_user textarea{
+    width: 190px;
+    padding: 5px;
+}
+div.edit_user input[type=text]{
+    height: 20px;
+}
+div.edit_user input.button{
+    float: right;
+}
+

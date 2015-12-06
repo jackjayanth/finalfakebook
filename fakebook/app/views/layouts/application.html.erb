@@ -4,7 +4,12 @@
   <title>Fakebook</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jquery', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <script>
+    $(bosy)
+  </script>
 </head>
 <body>
   <header>
@@ -13,12 +18,10 @@
       <nav>
         <ul class="gnb">
           <li><%= link_to "hOME",   root_path %></li>
-          <li><%= link_to "hELP",   help_path  %></li>
-          <li><%= link_to "aBOUT",  about_path %></li>
           <% if logged_in?%>
             <li><%= link_to "uSERS",   users_path %></li>
             <li><%= link_to "pROFILE",   current_user %></li>
-            <li><%= link_to "sETTINGS",   edit_user_path(current_user) %></li>
+            <!--<li><%= link_to "sETTINGS",   edit_user_path(current_user) %></li>-->
             <li><%= link_to "lOGOUT", logout_path, method: "delete" %></li>
           <%else %>
            <li><%= link_to "lOGIN", login_path %></li>
@@ -30,6 +33,15 @@
   <div class="container">
     <%= yield %>
   </div>
+  <footer>
+    <div style="clear: both;">
+      <p>Copyright ⓒ http://www.Fakebook.com. All rights reserved.</p>
+      <ul>
+        <li><%= link_to "HELP",   help_path  %></li>
+        <li><%= link_to "ABOUT",  about_path %></li>
+      </ul>
+    </div>
+  </footer>
    <!--<%= debug(params) if Rails.env.development? %>-->
 </body>
 </html>

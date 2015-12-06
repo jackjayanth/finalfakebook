@@ -1,8 +1,43 @@
-<h1>All users</h1>
+<br/>
+<div class="find_friend">
+<h1>Find Friends</h1>
+<div class="search_friend">
+  <span>Find your friends : </span>
+  <input id="searchTerm" class="input_friend" type="text" name="name" placeholder="Input name" />
+</div>
 
 <ul class="users">
-    <% @users.each do |u|%>
-    <li> <h1><%= u.name %></h1></li>
-    <li> <%= link_to u.name, u %></li>
-    <% end %>
+  <% @users.each do |u|%>
+      <li class="user_li">
+        <h2><%= link_to u.name, u %></h2>
+        <p>E-mail: <%= u.email %></p>
+        <% if u.dob != nil %>
+        <p>Date of Birth: <%= u.dob %></p>
+        <% end %>
+        <% if u.work != nil && u.work != "" %>
+            <p>Work: <%= u.work %></p>
+        <% end %>
+        <% if u.education != nil && u.education != "" %>
+            <p>Education: <%= u.education %></p>
+        <% end %>
+      </li>
+  <% end %>
 </ul>
+</div>
+<script type="text/javascript">
+    var beforeTerm="";
+    $("#searchTerm").bind("keyup", function(){
+        var term = $.trim($(this).val());
+
+        if(beforeTerm == term) return;
+
+        if(term == ""){
+            $("li.user_li").show();
+            return false;
+        }
+        $("li.user_li").hide();
+        $("li.user_li:contains("+term+")").show();
+
+        beforeTerm = term;
+    });
+</script>

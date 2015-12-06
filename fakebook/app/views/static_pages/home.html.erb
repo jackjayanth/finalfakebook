@@ -1,24 +1,32 @@
 
-<html>
-  
   <% if logged_in? %>
-   <div class="row">
-      <section class="user_info" style="float:left; width:20%">
-        <%= render 'shared/user_info' %>
-      </section>
-      <section class="micropost_form" style="float:right;width:30%; margin-top:20px">
-       <ol> <%= render 'shared/micropost_form' %> </ol>
-      </section>
-   
-    <div class="feed" style="float:right; width:50%">
-      <h3>All Posts</h3>
-        <%= render 'shared/feed' %>
+   <div class="home">
+    <div  class="user_info">
+         <section>
+           <%= render 'shared/user_info' %>
+         </section>
     </div>
+     <div class="sponsor">
+       <h3>Sponsors</h3>
+       <ul>
+         <li><a target="_blank" href="http://www.towson.edu/"><img src="towson.png" alt="towson"/></a></li>
+         <li><a target="_blank" href="https://pragprog.com/book/ruby4/programming-ruby-1-9-2-0"><img src="ruby.jpg" alt="ruby"/></a></li>
+       </ul>
+     </div>
+     <div class="contents">
+         <section class="micropost_form">
+           <ol> <%= render 'shared/micropost_form' %> </ol>
+         </section>
+         <div class="feed">
+             <h3>All Posts</h3>
+             <%= render 'shared/feed' %>
+         </div>
+     </div>
+     <div style="clear: both;"/>
   </div>
   
   
   <% else %>
-    <body bgcolor="#f5f5f5">
     <br>
     <table border = 0 width = 500 align = center bgcolor= #f5f5f5>
         <tr>
@@ -63,18 +71,8 @@
           <font size = 2 >
             한국어 English(US) Español  Français(France) 中文(简体) Português(Brasil) Italiano Deutsch हिन्दी
           </font>
-          <br><br>
-          <font size = 1> Fakebook © 2015</font>
-
         </td>
       </tr>
 
     </table>
-    <br><br><br>
-
-
-
-
-    </body>
     <% end %>
-</html>
