@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20151205091935) do
     t.string   "password_digest"
     t.string   "work"
     t.string   "education"
-    t.integer  "phone"
     t.text     "about"
     t.string   "relatioship"
     t.date     "dob"
