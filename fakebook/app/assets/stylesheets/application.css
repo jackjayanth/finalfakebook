@@ -289,3 +289,71 @@ div.edit_user input.button{
     float: right;
 }
 
+/******************************/
+/***********Chatting***********/
+/******************************/
+div#chatting{
+    position: fixed;
+    width: 300px;
+    bottom: 3px;
+    right: 3px;
+    z-index: 9999;
+}
+
+div.chat_titlebar{
+    height: 20px;
+    margin: 0;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: #666666;
+    cursor: pointer;
+}
+
+div.chat_area{
+    height: 300px;
+    max-height: 300px;
+    padding: 5px;
+    background-color: white;
+    border: 1px solid #666666;
+}
+div.chat_area #chat_content{
+    height:270px;
+    overflow-y:scroll;
+}
+div.chat_area #chat_content p {
+    margin: 5px;
+    border-bottom: 1px dotted #DADADA;
+}
+div.chat_area #chat_content p span{
+    font-weight: bold;
+}
+div.chat_area #chat_content .system{
+    text-align: center;
+}
+div.chat_area #chat_content .right{
+    text-align: right;
+}
+
+div.chat_area #input_content{
+    margin-top: 10px;
+}
+div.chat_area #input_content input{
+    width: 220px;
+}
+div.chat_area #input_content button{
+    width: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,6 +29,116 @@
       </nav>
     </div>
   </header>
+
+  <% if logged_in?%>
+  <div id="chatting">
+    <div class="chat_titlebar">Chatting</div>
+    <div class="chat_area">
+      <div id="chat_content">
+        <!-- Chatting Area -->
+      </div>
+      <div id="input_content">
+        <input id="chat_message" type="text" />
+        <button id="send_message">Send</button>
+      </div>
+
+      <script>
+        $(".chat_area").hide();
+        $(".chat_titlebar").toggle(function() {
+          $(".chat_area").show();
+          scrollToBottom();
+        }, function() {
+          $(".chat_area").hide();
+        });
+
+        $(document).ready(function(){
+          var mUrl = "/chat_get?last_id=0";
+          $.ajax({
+            url: mUrl,
+            type: 'POST',
+            format: JSON,
+            success: function(messages) {
+              var msgType = "myMsg";
+              $.each(messages, function(i, msg){
+                if(msg.sender_id == <%= current_user.id%>){
+                  msgType = "myMsg";
+                }else{
+                  msgType = "otherMsg";
+                }
+                addMessage(msgType, msg.id, msg.sender_name, msg.text);
+              });
+            }
+          });
+        });
+
+        var myMsg = "<p class='right' value='@id@'>@text@</p>";
+        var otherMsg = "<p class='left' value='@id@'><span>@name@: </span>@text@</p>";
+        var sysMsg = "<p class='system'><span>@name@ </span>Join</p>";
+
+        $("#send_message").click(function(){
+          sendMessage($("#chat_message").val());
+          $('#chat_message').focus();
+        });
+        $('#chat_message').keyup(function(e){
+          if(e.keyCode == 13)
+          {
+            sendMessage($("#chat_message").val());
+          }
+        });
+        function sendMessage(text){
+          if(text == '') return;
+
+          var mUrl = '/chat_send?text='+text+"&sender_id=<%=current_user.id%>&sender_name=<%=current_user.name%>";
+          $.ajax({
+            url: mUrl,
+            type: 'POST',
+            format: JSON,
+            success: function(message) {
+              addMessage("myMsg", message.id, "<%= current_user.name%>",text);
+              $('#chat_message').val("");
+              scrollToBottom();
+            }
+          });
+        }
+        function addMessage(type, id, ownerName, text){
+          var msg = "";
+          if(type == 'myMsg'){
+            msg = myMsg;
+          }else{
+            msg = otherMsg;
+          }
+          $("#chat_content").append(msg.replace("@id@",id).replace("@name@", ownerName).replace("@text@", text));
+          scrollToBottom();
+        }
+        function scrollToBottom(){
+          $("#chat_content").scrollTop($("#chat_content").get(0).scrollHeight);
+        }
+
+        //Rolling for Receiving Messages
+        setInterval(function(){
+            var mUrl = "/chat_get?last_id="+$("#chat_content p:last").attr("value");
+            $.ajax({
+                url: mUrl,
+                type: 'POST',
+                format: JSON,
+                success: function(messages) {
+                    var msgType = "myMsg";
+                    $.each(messages, function(i, msg){
+                        if(msg.sender_id == <%= current_user.id%>){
+                            msgType = "myMsg";
+                        }else{
+                            msgType = "otherMsg";
+                        }
+                        addMessage(msgType, msg.id, msg.sender_name, msg.text);
+                    });
+                }
+            });
+        }, 1000);
+      </script>
+    </div>
+  </div>
+  <% end %>
+
   <div class="container">
     <%= yield %>
   </div>

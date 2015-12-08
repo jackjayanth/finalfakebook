@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get 'logout'  => 'sessions#destroy'
+  post 'chat_send' => 'chat#post'
+  post 'chat_get' => 'chat#get'
   resources :users 
   resources :microposts,only: [:create, :destroy]
   
