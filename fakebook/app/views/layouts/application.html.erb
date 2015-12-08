@@ -114,9 +114,14 @@
           $("#chat_content").scrollTop($("#chat_content").get(0).scrollHeight);
         }
 
+        function isNumber(n) {
+          return !isNaN(parseFloat(n)) && isFinite(n);
+        }
         //Rolling for Receiving Messages
         setInterval(function(){
-            var mUrl = "/chat_get?last_id="+$("#chat_content p:last").attr("value");
+          var last_id = $("#chat_content p:last").attr("value");
+          if(!isNumber(last_id)) last_id=0;
+            var mUrl = "/chat_get?last_id="+last_id;
             $.ajax({
                 url: mUrl,
                 type: 'POST',
@@ -167,4 +172,61 @@
     location.reload();
   });
 </script>
+
+<% if logged_in?%>
+<script>
+  $(".comment_submit").click(function(){
+    var comment = $(this).siblings(".comment_input").val();
+    if(comment == "") {
+      alert("Enter the comments!");
+      return;
+    }
+
+    var mUrl = "/comment_post?post_id="+$(this).val()+"&user_id=<%= current_user.id%>&text="+comment;
+    $.ajax({
+      url: mUrl,
+      type: 'post',
+      format: JSON,
+      success: function(result) {
+        //$(this).siblings(".comment_input").val("");
+        //location.reload();
+      }
+    });
+    location.reload();
+  });
+
+  $(".comment_delete").click(function(){
+    var mUrl = "/comment_delete?comment_id="+$(this).val();
+    $.ajax({
+      url: mUrl,
+      type: 'post',
+      format: JSON,
+      success: function(result) {
+        location.reload();
+      }
+    });
+  });
+
+  $(".comment_edit").click(function(){
+    var area = $(this).parent().siblings(".text").children(".edit_comment_area");
+    area.show();
+  });
+
+  $(".comment_edit_confirm").click(function(){
+    var mUrl = "/comment_edit?comment_id="+$(this).val()+"&text="+$(this).siblings(".for_edit").val();
+    $.ajax({
+      url: mUrl,
+      type: 'post',
+      format: JSON,
+      success: function(result) {
+        location.reload();
+      }
+    });
+  });
+  $(".comment_edit_cancel").click(function(){
+    var area = $(this).parent();
+    area.hide();
+  });
+</script>
+<% end %>
 </html>
