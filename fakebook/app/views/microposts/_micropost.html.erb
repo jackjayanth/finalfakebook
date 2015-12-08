@@ -24,6 +24,45 @@
           </span>
       </td>
   </tr>
-</table>    
+
+
+  <tr class="text_area comments comment_for_" id="comment_for_<%=micropost.id%>">
+    <td colspan="2">
+      <% if @comments != nil %>
+          <% @comments.each do |comment|%>
+              <% if comment.post_id == micropost.id %>
+                <table class="table_for_comment">
+                  <tr>
+                    <td class='user_info'>*<span class='user'><a href="/users/<%=comment.user_id%>"><%= User.find(comment.user_id).name%></a></span></td>
+                    <td class='text'>
+                      <div class="edit_comment_area">
+                          <input type="text" class="for_edit" value="<%=comment.text%>" />
+                          <button class='comment_edit_confirm' value='<%=comment.id%>'>confirm</button>
+                          <button class='comment_edit_cancel' value='<%=comment.id%>'>cancel</button>
+                      </div>
+                      <span class="for_show"><%=comment.text%></span>
+                    </td>
+                    <% if comment.user_id == current_user.id%>
+                        <td><button class='comment_edit' value='<%=comment.id%>'>edit</button></td>
+                        <td><button class='comment_delete' value='<%=comment.id%>'>delete</button></td>
+                    <% end %>
+                  </tr>
+                </table>
+              <% end %>
+          <% end %>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr class="comments_input_td">
+    <td colspan="2">
+         <div class="comments_input_area">
+            <span>Comment: </span>
+            <input type="text" class="comment_input" />
+            <button class="comment_submit" value="<%=micropost.id%>">Submit</button>
+         </div>
+    </td>
+  </tr>
+</table>
     
     

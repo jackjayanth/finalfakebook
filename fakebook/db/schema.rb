@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208064750) do
+ActiveRecord::Schema.define(version: 20151208201805) do
 
   create_table "chats", force: :cascade do |t|
     t.integer  "sender_id"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20151208064750) do
     t.string   "text"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.string   "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "microposts", force: :cascade do |t|

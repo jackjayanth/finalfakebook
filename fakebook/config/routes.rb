@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get 'logout'  => 'sessions#destroy'
   post 'chat_send' => 'chat#post'
   post 'chat_get' => 'chat#get'
+  post 'comment_get' => 'comment#get'
+  post 'comment_post' => 'comment#post'
+  post 'comment_edit' => 'comment#edit'
+  post 'comment_delete' => 'comment#delete'
   resources :users 
   resources :microposts,only: [:create, :destroy]
   
